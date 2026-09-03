@@ -1,0 +1,84 @@
+:root {
+  --ink: #0a1829;
+  --paper: #f5f3ed;
+  --quiet: #657081;
+  --accent: #265e52;
+  --line: rgba(10, 24, 41, 0.2);
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  min-width: 320px;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: Arial, Helvetica, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+.archive { min-height: 100vh; }
+
+.masthead {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1.5rem clamp(1.25rem, 5vw, 5rem);
+  border-bottom: 1px solid var(--line);
+}
+
+.kicker, .archive-id, .eyebrow, .label, footer {
+  margin: 0;
+  font-family: "Courier New", monospace;
+  font-size: 0.69rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.archive-id, .label { color: var(--quiet); }
+
+.hero {
+  min-height: 62vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-start;
+  padding: clamp(5rem, 14vw, 12rem) clamp(1.25rem, 9vw, 9rem) clamp(3rem, 8vw, 6rem);
+  border-bottom: 1px solid var(--line);
+}
+
+.eyebrow { color: var(--accent); margin-bottom: 1.1rem; }
+
+h1, h2 { margin: 0; font-family: Georgia, "Times New Roman", serif; font-weight: 400; letter-spacing: -0.06em; }
+h1 { max-width: 9ch; font-size: clamp(4rem, 11vw, 10rem); line-height: 0.86; }
+h2 { max-width: 10ch; font-size: clamp(2.3rem, 5vw, 5.2rem); line-height: 1.03; }
+
+.discipline {
+  margin: 1.5rem 0 0;
+  color: var(--accent);
+  font-size: clamp(0.82rem, 1.6vw, 1.05rem);
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.intro { max-width: 41rem; margin: 2.25rem 0 0; color: #314055; font-size: clamp(1rem, 1.65vw, 1.2rem); line-height: 1.7; }
+
+.record { display: grid; grid-template-columns: repeat(3, 1fr); border-bottom: 1px solid var(--line); }
+.record > div { min-height: 10rem; padding: 1.7rem clamp(1.25rem, 5vw, 5rem); }
+.record > div + div { border-left: 1px solid var(--line); }
+.record p:last-child { margin: 0.65rem 0 0; font-family: Georgia, "Times New Roman", serif; font-size: clamp(1rem, 1.5vw, 1.25rem); line-height: 1.4; }
+
+.note { padding: clamp(5rem, 12vw, 11rem) clamp(1.25rem, 9vw, 9rem); }
+.note > p:last-child { max-width: 44rem; margin: 2rem 0 0; color: #314055; font-size: clamp(1rem, 1.65vw, 1.2rem); line-height: 1.75; }
+
+footer { display: flex; justify-content: space-between; gap: 1.5rem; padding: 1.5rem clamp(1.25rem, 5vw, 5rem); border-top: 1px solid var(--line); color: var(--quiet); }
+footer a { color: inherit; text-underline-offset: 0.25rem; }
+footer a:hover { color: var(--ink); }
+
+@media (max-width: 680px) {
+  .masthead, footer { align-items: flex-start; flex-direction: column; }
+  .record { grid-template-columns: 1fr; }
+  .record > div + div { border-top: 1px solid var(--line); border-left: 0; }
+  .hero { min-height: 40rem; }
+}
